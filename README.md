@@ -7,16 +7,14 @@ An online store for organic produce from small farms. Customers browse, order an
 
 The project ships in two parts:
 
-1. **`demo.html`**: a standalone demo. Open it in a browser, no install needed. Everything is saved in `localStorage`.
-2. **Three interchangeable backends** that expose the same features through a JSON API: **PHP + MySQL**, **Python (Flask) + SQLite**, **Node.js (Express) + SQLite**.
-
----
+- **`index.html`**: a standalone demo. Open it in a browser, no install needed. Everything is saved in localStorage.
+- **Three interchangeable backends** that expose the same features through a JSON API: PHP + MySQL, Python (Flask) + SQLite, Node.js (Express) + SQLite.
 
 ## 📂 Folder Structure
 
 ```
 OnlineOrganicFoodSystem/
-├── demo.html                 # Standalone demo (HTML + CSS + JS, localStorage)
+├── index.html                # Standalone demo (HTML + CSS + JS, localStorage)
 ├── README.md
 ├── js/
 │   └── api.js                # Fetch client for the Flask / Express API
@@ -35,23 +33,20 @@ OnlineOrganicFoodSystem/
     └── package.json
 ```
 
----
-
 ## 🔑 Demo Logins
 
-| Role | Email | Password |
-|------|-------|----------|
-| Customer | customer@organicfood.demo | customer123 |
-| Admin | admin@organicfood.demo | admin123 |
+| Role     | Email                        | Password      |
+|----------|------------------------------|---------------|
+| Customer | customer@organicfood.demo    | customer123   |
+| Admin    | admin@organicfood.demo       | admin123      |
 
 > Change these passwords before using any backend on a public server.
-
----
 
 ## 🚀 How to Run
 
 ### 1. Demo only (no install)
-Open `demo.html` in any modern browser.
+Open `index.html` in any modern browser.
+Live demo: https://sohan-rana.github.io/OnlineOrganicFoodSystem/
 
 ### 2. PHP + MySQL
 ```bash
@@ -78,27 +73,23 @@ npm start
 ```
 Open `http://127.0.0.1:3000`. The SQLite file is created automatically.
 
-> The Flask and Express servers serve `demo.html` at `/` and the JSON API under `/api/...`. `demo.html` itself uses `localStorage`; use `js/api.js` to connect your own front-end to a backend.
-
----
+The Flask and Express servers serve `index.html` at `/` and the JSON API under `/api/...`. `index.html` itself uses localStorage; use `js/api.js` to connect your own front-end to a backend.
 
 ## 🔌 API Overview
 
-| Action | Flask / Express | PHP (`api.php?action=`) |
-|--------|-----------------|-------------------------|
-| List products | `GET /api/products` | `products` |
-| Register / login / logout | `POST /api/register` · `/api/login` · `/api/logout` | `register` · `login` · `logout` |
-| Current user | `GET /api/me` | `me` |
-| Place order | `POST /api/orders` | `order` |
-| My orders | `GET /api/orders` | `my_orders` |
-| Cancel pending order | `POST /api/orders/:id/cancel` | `cancel_order` |
-| Admin: all orders | `GET /api/admin/orders` | `admin_orders` |
-| Admin: change status | `PATCH /api/admin/orders/:id` | `admin_status` |
-| Admin: save / delete product | `POST·PUT·DELETE /api/admin/products` | `admin_product_save` · `admin_product_delete` |
+| Action                       | Flask / Express                                   | PHP (`api.php?action=`)                |
+|------------------------------|---------------------------------------------------|----------------------------------------|
+| List products                | `GET /api/products`                               | `products`                             |
+| Register / login / logout    | `POST /api/register` · `/api/login` · `/api/logout` | `register` · `login` · `logout`      |
+| Current user                 | `GET /api/me`                                     | `me`                                   |
+| Place order                  | `POST /api/orders`                                | `order`                                |
+| My orders                    | `GET /api/orders`                                 | `my_orders`                            |
+| Cancel pending order         | `POST /api/orders/:id/cancel`                     | `cancel_order`                         |
+| Admin: all orders            | `GET /api/admin/orders`                           | `admin_orders`                         |
+| Admin: change status         | `PATCH /api/admin/orders/:id`                     | `admin_status`                         |
+| Admin: save / delete product | `POST·PUT·DELETE /api/admin/products`             | `admin_product_save` · `admin_product_delete` |
 
-Orders are priced **on the server** from the database (never from the browser). Stock is checked and reduced inside a transaction, and restored when an order is cancelled.
-
----
+Orders are priced on the server from the database (never from the browser). Stock is checked and reduced inside a transaction, and restored when an order is cancelled.
 
 ## 🛠 Features
 
@@ -110,14 +101,12 @@ Orders are priced **on the server** from the database (never from the browser). 
 - Admin: dashboard, product add/edit/delete, order status updates
 - Responsive layout with automatic dark mode
 
----
-
 ## 🔮 Future Improvements
 
 - Product images and customer reviews
 - Real payment gateway integration
 - Email / SMS order notifications
-- Front-end switch between `localStorage` mode and API mode
+- Front-end switch between localStorage mode and API mode
 
 ## 📜 License
 
